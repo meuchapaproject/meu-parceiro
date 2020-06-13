@@ -39,9 +39,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginPage} />
         <Stack.Screen
           options={{
             title: 'Meu chapa',
+            headerLeft: null,
             headerStyle: {
               backgroundColor: theme.purple1,
             },
@@ -54,7 +56,7 @@ export default function App() {
           name="Home"
           component={HomePage}
         />
-        <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginPage} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

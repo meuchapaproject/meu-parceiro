@@ -14,7 +14,7 @@ import theme from '../../theme';
 import { dispatch } from '../../store';
 import types from '../../store/types';
 
-export default () => {
+export default ({ navigation }) => {
   const [number, setNumber] = useState('');
   return (
     <SafeAreaView style={{
@@ -87,7 +87,10 @@ export default () => {
             onChangeText={setNumber}
           />
           <ButtonArrow
-            onPress={() => dispatch({ type: types.SET_PHONE, payload: number })}
+            onPress={() => {
+              dispatch({ type: types.SET_PHONE, payload: number });
+              navigation.navigate('Home');
+            }}
             style={{ margin: 10 }}
             isActive={number !== ''}
           />
