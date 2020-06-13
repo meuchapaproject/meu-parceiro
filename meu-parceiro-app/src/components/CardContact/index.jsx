@@ -41,7 +41,7 @@ export default ({
         flexDirection: 'row',
         ...style,
       }}
-      onPress={() => Linking.openURL(`whatsapp://send?text=Olá meu chapa&phone=${phone}`)}
+      onPress={() => Linking.openURL(`whatsapp://send?phone=${phone}`)}
     >
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <Image

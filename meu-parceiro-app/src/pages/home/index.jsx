@@ -22,7 +22,7 @@ const commonStyleCardContact = {
   marginTop: 15,
 };
 
-export default () => (
+export default ({ navigation }) => (
   <SafeAreaView style={{
     flex: 1,
     backgroundColor: theme.gray1,
@@ -41,6 +41,7 @@ export default () => (
           title="Buscar Estabelecimentos"
           subtitle="Postos, restaurantes, paradas, hotéis, oficinas entre outros"
           image={estabelecimento}
+          onPress={() => navigation.navigate('Establishment')}
         />
         <CardMain
           style={commonStyleCardMain}

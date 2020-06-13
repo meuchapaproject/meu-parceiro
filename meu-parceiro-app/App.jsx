@@ -12,7 +12,10 @@ import { AppLoading } from 'expo';
 
 import LoginPage from './src/pages/login';
 import HomePage from './src/pages/home';
+import EstablishmentPage from './src/pages/establishment';
+
 import theme from './src/theme';
+import ButtonBack from './src/components/ButtonBack';
 
 const Stack = createStackNavigator();
 
@@ -39,7 +42,6 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginPage} />
         <Stack.Screen
           options={{
             title: 'Meu chapa',
@@ -56,6 +58,25 @@ export default function App() {
           name="Home"
           component={HomePage}
         />
+        <Stack.Screen
+          options={{
+            title: 'Buscar estabelecimentos',
+            headerBackTitleVisible: false,
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            headerLeft: ButtonBack,
+            headerStyle: {
+              backgroundColor: theme.purple1,
+            },
+            headerTitleStyle: {
+              fontFamily: 'bold',
+              color: theme.white1,
+              fontSize: theme.fontTitle,
+            },
+          }}
+          name="Establishment"
+          component={EstablishmentPage}
+        />
+        <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );

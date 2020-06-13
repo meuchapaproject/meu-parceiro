@@ -83,6 +83,7 @@ export default ({ navigation }) => {
               paddingVertical: 10,
               paddingHorizontal: 20,
               fontSize: theme.fontInput,
+              flex: 1,
             }}
             onChangeText={setNumber}
           />
