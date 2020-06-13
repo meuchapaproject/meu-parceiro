@@ -13,6 +13,7 @@ import { AppLoading } from 'expo';
 import LoginPage from './src/pages/login';
 import HomePage from './src/pages/home';
 import EstablishmentPage from './src/pages/establishment';
+import VerificationPage from './src/pages/verification';
 
 import theme from './src/theme';
 import ButtonBack from './src/components/ButtonBack';
@@ -42,6 +43,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginPage} />
+        <Stack.Screen options={{ headerShown: false }} name="Verification" component={VerificationPage} />
         <Stack.Screen
           options={{
             title: 'Meu chapa',
@@ -76,7 +79,6 @@ export default function App() {
           name="Establishment"
           component={EstablishmentPage}
         />
-        <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
