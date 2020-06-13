@@ -11,7 +11,8 @@ import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 
 import LoginPage from './src/pages/login';
-// import HomePage from './src/pages/home';
+import HomePage from './src/pages/home';
+import theme from './src/theme';
 
 const Stack = createStackNavigator();
 
@@ -38,6 +39,21 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen
+          options={{
+            title: 'Meu chapa',
+            headerStyle: {
+              backgroundColor: theme.purple1,
+            },
+            headerTitleStyle: {
+              fontFamily: 'bold',
+              color: theme.white1,
+              fontSize: theme.fontTitle,
+            },
+          }}
+          name="Home"
+          component={HomePage}
+        />
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginPage} />
       </Stack.Navigator>
     </NavigationContainer>
