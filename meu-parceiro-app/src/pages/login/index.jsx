@@ -6,7 +6,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faAngleRight, faLock } from '@fortawesome/free-solid-svg-icons';
 
-import twilio from 'twilio';
+import axios from 'axios';
 import ButtonArrow from '../../components/ButtonArrow';
 
 import logo from '../../assets/logo.png';
@@ -19,15 +19,17 @@ const sendMessage = (phone) => {
   const min = 100000;
   const max = 999999;
   const code = Math.round(min + Math.random() * (max));
-  const client = twilio('ACec722a092d334ff283c69fa8f8514cff', '6b358bbaf734b9b45bdf65b7407c91fd', {
-    lazyLoading: true,
+
+  axios({
+    baseURL: 'https://api.twilio.com/2010-04-01/Accounts/ACec722a092d334ff283c69fa8f8514cff/Messages.json',
+    auth: { username: 'ACec722a092d334ff283c69fa8f8514cff', password: '6b358bbaf734b9b45bdf65b7407c91fd' },
+    params: {
+      from: 'whatsapp:+14155238886',
+      body: 'Hello there!',
+      to: 'whatsapp:+15005550006',
+    },
   });
-  client.messages.create({
-    body: `Seu Código para Acessar o Meu Chapa é ${code}`,
-    to: `whatsapp:+55${phone}`,
-    from: 'whatsapp:+14155238886',
-  }).then((message) => console.log(message))
-    .catch((error) => console.log(error));
+
   return code;
 };
 
