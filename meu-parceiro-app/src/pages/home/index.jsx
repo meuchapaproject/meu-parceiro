@@ -1,5 +1,7 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import {
+  SafeAreaView, ScrollView, View, Text,
+} from 'react-native';
 
 import CardMain from '../../components/CardMain';
 
@@ -8,41 +10,65 @@ import theme from '../../theme';
 import estabelecimento from '../../assets/estabelecimento.png';
 import custo from '../../assets/custo.png';
 import saude from '../../assets/saude.png';
+import trucker from '../../assets/trucker-driver.jpg';
 
-const commonStyle = {
+import CardContact from '../../components/CardContact';
+
+const commonStyleCardMain = {
   marginTop: 30,
+};
+
+const commonStyleCardContact = {
+  marginTop: 15,
 };
 
 export default () => (
   <SafeAreaView style={{
     flex: 1,
     backgroundColor: theme.gray1,
-    flexDirection: 'column',
-    alignItems: 'center',
   }}
   >
-    <CardMain
-      style={commonStyle}
-      title="Buscar Estabelecimentos"
-      subtitle="Postos, restaurantes, paradas, hotéis, oficinas entre outros"
-      image={estabelecimento}
-    />
-    <CardMain
-      style={commonStyle}
-      title="Mapear custo de viagem"
-      subtitle="Pedágios, combustível e roteiros para sua viagem"
-      image={custo}
-    />
-    <CardMain
-      style={commonStyle}
-      imageWidth={104}
-      imageHeight={180}
-      styleImage={{
-        right: 20,
+    <ScrollView
+      style={{
+        flex: 1,
+        alignContent: 'center',
+        flexDirection: 'column',
       }}
-      title="Exercícios e relaxamento"
-      subtitle="Vídeos de exercícios e alongamentos para evitar dores nas costas e pernas"
-      image={saude}
-    />
+    >
+      <View style={{ width: '100%', alignItems: 'center' }}>
+        <CardMain
+          style={commonStyleCardMain}
+          title="Buscar Estabelecimentos"
+          subtitle="Postos, restaurantes, paradas, hotéis, oficinas entre outros"
+          image={estabelecimento}
+        />
+        <CardMain
+          style={commonStyleCardMain}
+          title="Mapear custo de viagem"
+          subtitle="Pedágios, combustível e roteiros para sua viagem"
+          image={custo}
+        />
+        <CardMain
+          style={commonStyleCardMain}
+          imageWidth={104}
+          imageHeight={180}
+          styleImage={{
+            right: 20,
+          }}
+          title="Exercícios e relaxamento"
+          subtitle="Vídeos de exercícios e alongamentos para evitar dores nas costas e pernas"
+          image={saude}
+        />
+      </View>
+      <View style={{ width: '100%', alignItems: 'center', marginTop: 40 }}>
+        <View style={{ height: 6, width: '13%', backgroundColor: theme.black1 }} />
+      </View>
+      <View style={{ width: '100%', alignItems: 'center', marginTop: 20 }}>
+        <Text style={{ fontFamily: 'bold', fontSize: theme.fontDefault }}>Amigos próximos</Text>
+        <CardContact image={trucker} name="José Ricardo" km={10} minutes={5} style={commonStyleCardContact} />
+        <CardContact image={trucker} name="José Ricardo" km={10} minutes={5} style={commonStyleCardContact} />
+        <CardContact image={trucker} name="José Ricardo" km={10} minutes={5} style={commonStyleCardContact} />
+      </View>
+    </ScrollView>
   </SafeAreaView>
 );
