@@ -27,16 +27,19 @@
     "expo-font": "~8.1.0",
     "expo-location": "~8.1.0",
     "expo-permissions": "~8.1.0",
-    "prop-types": "^15.7.2",
     "react": "16.9.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.0.tar.gz",
+    "react-native-geocoding": "^0.4.0",
     "react-native-gesture-handler": "~1.6.0",
-    "react-native-maps": "0.26.1",
+    "react-native-google-places-autocomplete": "^1.7.1",
+    "react-native-maps": "^0.27.1",
+    "react-native-maps-directions": "^1.8.0",
     "react-native-reanimated": "~1.7.0",
     "react-native-svg": "11.0.1",
     "react-navigation": "^4.0.10",
     "react-navigation-drawer": "^2.3.3",
-    "react-navigation-stack": "^1.10.3"
+    "react-navigation-stack": "^1.10.3",
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
