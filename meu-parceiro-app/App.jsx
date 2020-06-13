@@ -56,7 +56,6 @@ export default function App() {
           name="Home"
           component={HomePage}
         />
-
       </Stack.Navigator>
     </NavigationContainer>
   );

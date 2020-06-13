@@ -65,9 +65,9 @@ export default () => (
       </View>
       <View style={{ width: '100%', alignItems: 'center', marginTop: 20 }}>
         <Text style={{ fontFamily: 'bold', fontSize: theme.fontDefault }}>Amigos próximos</Text>
-        <CardContact image={trucker} name="José Ricardo" km={10} minutes={5} style={commonStyleCardContact} />
-        <CardContact image={trucker} name="José Ricardo" km={10} minutes={5} style={commonStyleCardContact} />
-        <CardContact image={trucker} name="José Ricardo" km={10} minutes={5} style={commonStyleCardContact} />
+        <CardContact image={trucker} name="João Pedro" km={10} minutes={5} style={commonStyleCardContact} phone="+5515998561991" />
+        <CardContact image={trucker} name="Breno Andrade" km={10} minutes={5} style={commonStyleCardContact} phone="+5514996364520" />
+        <CardContact image={trucker} name="José Ricardo" km={10} minutes={5} style={commonStyleCardContact} phone="+5515998561991" />
       </View>
     </ScrollView>
   </SafeAreaView>

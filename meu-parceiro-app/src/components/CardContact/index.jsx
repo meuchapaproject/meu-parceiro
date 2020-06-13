@@ -1,9 +1,11 @@
 import React from 'react';
 import {
-  View, TouchableOpacity, Image, Text,
+  View,
+  TouchableOpacity,
+  Image,
+  Text,
+  Linking,
 } from 'react-native';
-
-// import ButtonArrow from '../ButtonArrow';
 
 import whatsappLogo from '../../assets/whatsapp.png';
 
@@ -11,33 +13,35 @@ import theme from '../../theme';
 
 export default ({
   name,
+  phone,
   image,
   km,
   minutes,
   style,
-  // whatsapp,
 }) => {
   const message = `${km}km distância a ${minutes} minutos atrás`;
   return (
-    <TouchableOpacity style={{
-      width: '85%',
-      height: 70,
-      backgroundColor: theme.white1,
-      borderRadius: 7,
-      paddingHorizontal: 10,
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-      elevation: 5,
-      flexDirection: 'row',
-      ...style,
-    }}
+    <TouchableOpacity
+      style={{
+        width: '85%',
+        height: 70,
+        backgroundColor: theme.white1,
+        borderRadius: 7,
+        paddingHorizontal: 10,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        flexDirection: 'row',
+        ...style,
+      }}
+      onPress={() => Linking.openURL(`whatsapp://send?text=Olá meu chapa&phone=${phone}`)}
     >
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <Image
