@@ -12,6 +12,7 @@ import { AppLoading } from 'expo';
 
 import LoginPage from './src/pages/login';
 import HomePage from './src/pages/home';
+import Verification from './src/pages/verification';
 import theme from './src/theme';
 
 const Stack = createStackNavigator();
@@ -40,6 +41,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginPage} />
+        <Stack.Screen options={{ headerShown: false }} name="Verification" component={Verification} />
         <Stack.Screen
           options={{
             title: 'Meu chapa',
@@ -56,7 +58,6 @@ export default function App() {
           name="Home"
           component={HomePage}
         />
-
       </Stack.Navigator>
     </NavigationContainer>
   );
