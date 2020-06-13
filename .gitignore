@@ -1,0 +1,7 @@
+meu-parceiro-app/node_modules/**/*
+meu-parceiro-app/.expo/*
+meu-parceiro-app/npm-debug.*
+meu-parceiro-app/*.jks
+meu-parceiro-app/*.p12
+meu-parceiro-app/*.key
+meu-parceiro-app/*.mobileprovision
