@@ -49,13 +49,15 @@ export default ({ navigation }) => {
       alignItems: 'center',
     }}
     >
-      <TouchableOpacity style={{
-        position: 'absolute',
-        top: 50,
-        right: 20,
-        flexDirection: 'row',
-        alignItems: 'center',
-      }}
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Home')}
+        style={{
+          position: 'absolute',
+          top: 50,
+          right: 20,
+          flexDirection: 'row',
+          alignItems: 'center',
+        }}
       >
         <Text style={{
           fontFamily: 'bold',

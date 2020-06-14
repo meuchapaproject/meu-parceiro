@@ -19,6 +19,7 @@ import TripPage from './src/pages/trip';
 import SummaryPage from './src/pages/summary';
 import EvaluationPage from './src/pages/evaluation';
 import QualityPage from './src/pages/quality';
+import WorkoutPage from './src/pages/workout';
 
 import theme from './src/theme';
 import ButtonBack from './src/components/ButtonBack';
@@ -161,6 +162,24 @@ export default function App() {
           }}
           name="Quality"
           component={QualityPage}
+        />
+        <Stack.Screen
+          options={{
+            title: 'Exercícios e relaxamento',
+            headerBackTitleVisible: false,
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            headerLeft: ButtonBack,
+            headerStyle: {
+              backgroundColor: theme.purple1,
+            },
+            headerTitleStyle: {
+              fontFamily: 'bold',
+              color: theme.white1,
+              fontSize: theme.fontTitle,
+            },
+          }}
+          name="Workout"
+          component={WorkoutPage}
         />
         <Stack.Screen options={{ headerShown: false }} name="Verification" component={VerificationPage} />
       </Stack.Navigator>

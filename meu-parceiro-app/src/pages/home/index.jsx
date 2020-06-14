@@ -58,6 +58,7 @@ export default ({ navigation }) => (
             right: 20,
           }}
           title="Exercícios e relaxamento"
+          onPress={() => navigation.navigate('Workout')}
           subtitle="Vídeos de exercícios e alongamentos para evitar dores nas costas e pernas"
           image={saude}
         />

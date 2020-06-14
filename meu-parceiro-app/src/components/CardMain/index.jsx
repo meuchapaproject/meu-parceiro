@@ -64,7 +64,8 @@ export default ({
         width: '100%',
         height: '33%',
         backgroundColor: theme.white1,
-        borderRadius: 7,
+        borderBottomStartRadius: 7,
+        borderBottomEndRadius: 7,
         flexDirection: 'row',
         alignItems: 'center',
       }}
