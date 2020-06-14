@@ -38,7 +38,10 @@ export default ({ navigation }) => (
         flexDirection: 'column',
       }}
     >
-      <View style={{ width: '100%', alignItems: 'center', marginTop: 20 }}>
+      <View style={{
+        width: '100%', alignItems: 'center', marginTop: 20,
+      }}
+      >
         <Text style={{ fontFamily: 'bold', fontSize: theme.fontDefault }}>Amigos próximos</Text>
         <CardContact image={trucker1} name="João Pedro" km={10} minutes={5} style={commonStyleCardContact} phone="+5515998561991" />
         <CardContact image={trucker2} name="Breno Andrade" km={10} minutes={5} style={commonStyleCardContact} phone="+5514996364520" />
@@ -47,7 +50,7 @@ export default ({ navigation }) => (
       <View style={{ width: '100%', alignItems: 'center', marginTop: 40 }}>
         <View style={{ height: 6, width: '13%', backgroundColor: theme.black1 }} />
       </View>
-      <View style={{ width: '100%', alignItems: 'center' }}>
+      <View style={{ width: '100%', alignItems: 'center', paddingBottom: 30 }}>
         <CardMain
           style={commonStyleCardMain}
           title="Buscar Estabelecimentos"
