@@ -1,28 +1,34 @@
 import React from 'react';
+
 import {
   View,
-  TouchableWithoutFeedback,
-  Text,
   Image,
+  Text,
 } from 'react-native';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faStar, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
-import ButtonArrow from '../ButtonArrow';
+import Button from '../../components/Button';
 
 import abastecimento from '../../assets/abastecimento.png';
 import alimentacao from '../../assets/alimentacao.png';
 import banho from '../../assets/banho.png';
 import mecanica from '../../assets/mecanica.png';
 import repouso from '../../assets/repouso.png';
+import mapa01 from '../../assets/mapa01.png';
 
 import theme from '../../theme';
 
-export default ({
-  gasStation: {
-    name,
+export default ({ navigation, route }) => {
+  const { gasStation } = route.params;
+  navigation.setOptions({
+    title: gasStation.name,
+  });
+
+  const {
     km,
+    address,
     rating: {
       gas = 5,
       shower = 5,
@@ -30,22 +36,22 @@ export default ({
       workshop = 5,
       sleep = 5,
     } = {},
-  },
-  style = {},
-  onPress = () => {},
-}) => {
+  } = gasStation;
+
   const distance = `${km}km distância`;
   const stars = ((gas + shower + food + workshop + sleep) / 5).toFixed(1);
 
   return (
-    <TouchableWithoutFeedback
-      onPress={onPress}
+    <View style={{
+      width: '100%',
+      alignItems: 'center',
+      marginTop: 30,
+    }}
     >
       <View style={{
-        width: '100%',
+        width: '90%',
         backgroundColor: theme.white1,
         borderRadius: 7,
-        padding: 20,
         justifyContent: 'space-between',
         alignItems: 'center',
         shadowColor: '#000',
@@ -56,13 +62,12 @@ export default ({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        ...style,
       }}
       >
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 20 }}>
           <View style={{ flex: 1 }}>
-            <Text style={{ fontFamily: 'semibold', fontSize: theme.fontDefault }}>{name}</Text>
-            <View style={{ flexDirection: 'row', marginTop: 3 }}>
+            <Text style={{ fontFamily: 'bold', fontSize: theme.fontDefault }}>{address}</Text>
+            <View style={{ flexDirection: 'row', marginTop: 6 }}>
               <View style={{ flexDirection: 'row', marginRight: 20 }}>
                 <FontAwesomeIcon
                   icon={faStar}
@@ -87,13 +92,20 @@ export default ({
               </View>
             </View>
           </View>
-          <ButtonArrow
-            isActive
-            onPress={onPress}
-          />
         </View>
+        <Image
+          style={{
+            width: '100%',
+            height: 250,
+          }}
+          source={mapa01}
+        />
         <View style={{
-          flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginTop: 15,
+          padding: 20,
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          width: '100%',
+          marginTop: 15,
         }}
         >
           <View style={{ alignItems: 'center' }}>
@@ -118,6 +130,29 @@ export default ({
           </View>
         </View>
       </View>
-    </TouchableWithoutFeedback>
+      <Button
+        style={{
+          marginTop: 25,
+          width: '90%',
+          height: 60,
+        }}
+        icon={faStar}
+        text="Avaliar Estabelecimento"
+        textColor={theme.white1}
+        backgroundColor={theme.purple1}
+        onPress={() => navigation.navigate('Quality', { gasStation })}
+      />
+      <Button
+        style={{
+          marginTop: 25,
+          width: '90%',
+          height: 60,
+        }}
+        text="Iniciar viagem"
+        textColor={theme.white1}
+        backgroundColor={theme.green1}
+        onPress={() => {}}
+      />
+    </View>
   );
 };

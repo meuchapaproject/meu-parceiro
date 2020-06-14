@@ -17,6 +17,8 @@ import EstablishmentPage from './src/pages/establishment';
 import VerificationPage from './src/pages/verification';
 import TripPage from './src/pages/trip';
 import SummaryPage from './src/pages/summary';
+import EvaluationPage from './src/pages/evaluation';
+import QualityPage from './src/pages/quality';
 
 import theme from './src/theme';
 import ButtonBack from './src/components/ButtonBack';
@@ -123,6 +125,41 @@ export default function App() {
           }}
           name="Summary"
           component={SummaryPage}
+        />
+        <Stack.Screen
+          options={{
+            headerBackTitleVisible: false,
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            headerLeft: ButtonBack,
+            headerStyle: {
+              backgroundColor: theme.purple1,
+            },
+            headerTitleStyle: {
+              fontFamily: 'bold',
+              color: theme.white1,
+              fontSize: theme.fontTitle,
+            },
+          }}
+          name="Evaluation"
+          component={EvaluationPage}
+        />
+        <Stack.Screen
+          options={{
+            title: 'Avaliação de Qualidade',
+            headerBackTitleVisible: false,
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            headerLeft: ButtonBack,
+            headerStyle: {
+              backgroundColor: theme.purple1,
+            },
+            headerTitleStyle: {
+              fontFamily: 'bold',
+              color: theme.white1,
+              fontSize: theme.fontTitle,
+            },
+          }}
+          name="Quality"
+          component={QualityPage}
         />
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginPage} />
         <Stack.Screen options={{ headerShown: false }} name="Verification" component={VerificationPage} />
