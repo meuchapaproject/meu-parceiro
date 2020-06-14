@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faAngleRight, faLock } from '@fortawesome/free-solid-svg-icons';
 
 import axios from 'axios';
+import qs from 'query-string';
 import ButtonArrow from '../../components/ButtonArrow';
 
 import logo from '../../assets/logo.png';
@@ -19,17 +20,22 @@ const sendMessage = (phone) => {
   const min = 100000;
   const max = 999999;
   const code = Math.round(min + Math.random() * (max));
-
-  axios({
-    baseURL: 'https://api.twilio.com/2010-04-01/Accounts/ACec722a092d334ff283c69fa8f8514cff/Messages.json',
-    auth: { username: 'ACec722a092d334ff283c69fa8f8514cff', password: '6b358bbaf734b9b45bdf65b7407c91fd' },
-    params: {
-      from: 'whatsapp:+14155238886',
-      body: 'Hello there!',
-      to: 'whatsapp:+15005550006',
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
     },
-  });
-
+    auth: {
+      username: 'ACec722a092d334ff283c69fa8f8514cff',
+      password: '6b358bbaf734b9b45bdf65b7407c91fd',
+    },
+  };
+  const requestBody = {
+    From: 'whatsapp:+14155238886',
+    Body: `Seu Código para Acessar o Meu Chapa é ${code}`,
+    To: `whatsapp:+55${phone}`,
+  };
+  const url = 'https://api.twilio.com/2010-04-01/Accounts/ACec722a092d334ff283c69fa8f8514cff/Messages.json';
+  axios.post(url, qs.stringify(requestBody), config);
   return code;
 };
 
@@ -104,7 +110,10 @@ export default ({ navigation }) => {
               fontSize: theme.fontInput,
               flex: 1,
             }}
+            keyboardType="numeric"
             onChangeText={setNumber}
+            maxLength={11}
+            numberOfLines={1}
           />
           <ButtonArrow
             onPress={() => {
