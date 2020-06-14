@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  View, Text, SafeAreaView, Image,
+  View,
+  Text,
+  SafeAreaView,
+  Image,
 } from 'react-native';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faHome, faFlagCheckered } from '@fortawesome/free-solid-svg-icons';
-// import mapa01 from '../../assets/mapa01.png';
 
 import eixos02 from '../../assets/02eixos.png';
 import eixos03 from '../../assets/03eixos.png';
@@ -15,9 +17,13 @@ import eixos07 from '../../assets/07eixos.png';
 import eixos09 from '../../assets/09eixos.png';
 
 import ButtonArrow from '../../components/ButtonArrow';
+import Button from '../../components/Button';
 import Search from '../../components/Search';
 
 import theme from '../../theme';
+
+import { useGlobalState, dispatch } from '../../store';
+import types from '../../store/types';
 
 const eixos = {
   2: eixos02,
@@ -28,9 +34,11 @@ const eixos = {
   9: eixos09,
 };
 
-export default ({ style = {} }) => {
-  const [eixo, setEixo] = useState(2);
+export default ({ style = {}, navigation }) => {
+  const [eixo] = useGlobalState('eixo');
+
   const message = `${eixo} eixos`;
+
   return (
     <SafeAreaView style={{ backgroundColor: theme.gray1, alignItems: 'center' }}>
       <View
@@ -101,9 +109,9 @@ export default ({ style = {} }) => {
             isActive
             onPress={() => {
               if (eixo - 1 === 8 || eixo - 1 === 6) {
-                setEixo(eixo - 2);
+                dispatch({ type: types.SET_EIXO, payload: eixo - 2 });
               } else if (eixo > 2) {
-                setEixo(eixo - 1);
+                dispatch({ type: types.SET_EIXO, payload: eixo - 1 });
               }
             }}
             inverted
@@ -120,14 +128,25 @@ export default ({ style = {} }) => {
             isActive
             onPress={() => {
               if (eixo + 1 === 8 || eixo + 1 === 6) {
-                setEixo(eixo + 2);
+                dispatch({ type: types.SET_EIXO, payload: eixo + 2 });
               } else if (eixo < 9) {
-                setEixo(eixo + 1);
+                dispatch({ type: types.SET_EIXO, payload: eixo + 1 });
               }
             }}
           />
         </View>
       </View>
+      <Button
+        style={{
+          marginTop: 25,
+          width: '90%',
+          height: 60,
+        }}
+        text="Calcular valor da viagem"
+        textColor={theme.white1}
+        backgroundColor={theme.green1}
+        onPress={() => navigation.navigate('Summary')}
+      />
     </SafeAreaView>
   );
 };

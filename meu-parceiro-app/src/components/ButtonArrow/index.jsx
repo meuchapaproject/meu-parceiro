@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -7,10 +7,14 @@ import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import theme from '../../theme';
 
 export default ({
-  inverted = false, isActive, style = {}, onPress = () => {},
+  inverted = false,
+  isActive,
+  style = {},
+  onPress = () => {},
+  text = '',
 }) => (
   <TouchableOpacity
-    onPress={isActive ? onPress : () => {}}
+    onPress={onPress}
     style={{
       width: 37,
       height: 37,
@@ -22,12 +26,24 @@ export default ({
       ...style,
     }}
   >
-    <FontAwesomeIcon
-      icon={inverted ? faArrowLeft : faArrowRight}
-      style={{
-        color: isActive ? theme.black1 : theme.gray2,
+    {text ? (
+      <Text style={{
+        fontFamily: 'bold',
+        fontSize: theme.fontTitle,
+        textAlign: 'center',
+        paddingBottom: 3,
       }}
-      size={18}
-    />
+      >
+        {text}
+      </Text>
+    ) : (
+      <FontAwesomeIcon
+        icon={inverted ? faArrowLeft : faArrowRight}
+        style={{
+          color: isActive ? theme.black1 : theme.gray2,
+        }}
+        size={18}
+      />
+    )}
   </TouchableOpacity>
 );

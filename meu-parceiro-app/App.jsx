@@ -16,6 +16,7 @@ import HomePage from './src/pages/home';
 import EstablishmentPage from './src/pages/establishment';
 import VerificationPage from './src/pages/verification';
 import TripPage from './src/pages/trip';
+import SummaryPage from './src/pages/summary';
 
 import theme from './src/theme';
 import ButtonBack from './src/components/ButtonBack';
@@ -104,6 +105,24 @@ export default function App() {
           }}
           name="Trip"
           component={TripPage}
+        />
+        <Stack.Screen
+          options={{
+            title: 'Sua viagem',
+            headerBackTitleVisible: false,
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            headerLeft: ButtonBack,
+            headerStyle: {
+              backgroundColor: theme.purple1,
+            },
+            headerTitleStyle: {
+              fontFamily: 'bold',
+              color: theme.white1,
+              fontSize: theme.fontTitle,
+            },
+          }}
+          name="Summary"
+          component={SummaryPage}
         />
         <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginPage} />
         <Stack.Screen options={{ headerShown: false }} name="Verification" component={VerificationPage} />
