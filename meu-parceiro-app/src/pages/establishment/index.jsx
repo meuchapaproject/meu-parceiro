@@ -16,7 +16,7 @@ const commonStyle = {
 
 export default ({ navigation }) => (
   <SafeAreaView>
-    <ScrollView style={{ backgroundColor: theme.gray1, padding: 30, minHeight: '100%' }}>
+    <ScrollView style={{ backgroundColor: theme.gray1, padding: 20, minHeight: '100%' }}>
       <View style={{
         backgroundColor: theme.white1,
         borderColor: theme.gray2,

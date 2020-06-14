@@ -23,7 +23,7 @@ export default ({
   return (
     <TouchableOpacity
       style={{
-        width: '85%',
+        width: '90%',
         height: 70,
         backgroundColor: theme.white1,
         borderRadius: 7,
@@ -41,7 +41,7 @@ export default ({
         flexDirection: 'row',
         ...style,
       }}
-      onPress={() => Linking.openURL(`whatsapp://send?phone=${phone}`)}
+      onPress={() => Linking.openURL(`whatsapp://send?text=Opa!! Estou por perto, bora tomar um café?!&phone=${phone}`)}
     >
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <Image

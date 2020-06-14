@@ -39,13 +39,15 @@ export default ({ navigation }) => (
       }}
     >
       <View style={{
-        width: '100%', alignItems: 'center', marginTop: 20,
+        width: '100%',
+        alignItems: 'center',
+        marginTop: 20,
       }}
       >
         <Text style={{ fontFamily: 'bold', fontSize: theme.fontDefault }}>Amigos próximos</Text>
-        <CardContact image={trucker1} name="João Pedro" km={10} minutes={5} style={commonStyleCardContact} phone="+5515998561991" />
-        <CardContact image={trucker2} name="Breno Andrade" km={10} minutes={5} style={commonStyleCardContact} phone="+5514996364520" />
-        <CardContact image={trucker3} name="José Ricardo" km={10} minutes={5} style={commonStyleCardContact} phone="+5515998561991" />
+        <CardContact image={trucker1} name="João Pedro" km={3} minutes={2} style={commonStyleCardContact} phone="5515998561991" />
+        <CardContact image={trucker2} name="Breno Andrade" km={4} minutes={5} style={commonStyleCardContact} phone="5514996364520" />
+        <CardContact image={trucker3} name="José Ricardo" km={10} minutes={15} style={commonStyleCardContact} phone="5515998561991" />
       </View>
       <View style={{ width: '100%', alignItems: 'center', marginTop: 40 }}>
         <View style={{ height: 6, width: '13%', backgroundColor: theme.black1 }} />

@@ -20,7 +20,7 @@ export default ({
   >
     <View
       style={{
-        width: '85%',
+        width: '90%',
         height: 170,
         backgroundColor: theme.purple1,
         shadowColor: '#000',
