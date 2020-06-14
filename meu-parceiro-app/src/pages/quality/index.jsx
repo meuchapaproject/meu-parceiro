@@ -80,7 +80,7 @@ export default ({ route }) => {
         }}
         >
           {[abastecimento, banho, alimentacao, mecanica, repouso].map((ref, index) => (
-            <TouchableOpacity onPress={() => setTab(index)} style={buildStyleTab(tab === index)} onPress>
+            <TouchableOpacity onPress={() => setTab(index)} style={buildStyleTab(tab === index)}>
               <Image source={ref} style={buildStyleImage(tab === index)} />
             </TouchableOpacity>
           ))}
