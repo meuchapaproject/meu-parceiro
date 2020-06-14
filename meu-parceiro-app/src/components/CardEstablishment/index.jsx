@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faStar, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 import ButtonArrow from '../ButtonArrow';
+import ButtonPromoted from '../ButtonPromoted';
 
 import abastecimento from '../../assets/abastecimento.png';
 import alimentacao from '../../assets/alimentacao.png';
@@ -23,6 +24,7 @@ export default ({
   gasStation: {
     name,
     km,
+    promoted,
     rating: {
       gas = 5,
       shower = 5,
@@ -87,10 +89,17 @@ export default ({
               </View>
             </View>
           </View>
-          <ButtonArrow
-            isActive
-            onPress={onPress}
-          />
+          { promoted ? (
+            <ButtonPromoted
+              isActive
+              onPress={onPress}
+            />
+          ) : (
+            <ButtonArrow
+              isActive
+              onPress={onPress}
+            />
+          )}
         </View>
         <View style={{
           flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginTop: 15,

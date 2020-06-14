@@ -2,6 +2,7 @@ export default [{
   name: 'Posto Alexandria',
   address: 'Rodovia Presidente Dutra, km 145 São José dos Campos - SP',
   km: 3,
+  promoted: true,
   rating: {
     gas: 3.4, shower: 4.4, food: 4.8, workshop: 2, sleep: 1.4,
   },

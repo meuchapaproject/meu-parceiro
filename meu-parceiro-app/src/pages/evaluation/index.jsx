@@ -31,6 +31,7 @@ export default ({ navigation, route }) => {
   const {
     km,
     address,
+    promoted,
     rating: {
       gas = 5,
       shower = 5,
@@ -92,6 +93,19 @@ export default ({ navigation, route }) => {
                 />
                 <Text style={{ fontFamily: 'regular', fontSize: theme.fontInfo }}>{distance}</Text>
               </View>
+              { promoted && (
+              <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'flex-end' }}>
+                <FontAwesomeIcon
+                  icon={faStar}
+                  style={{
+                    color: theme.yellow1,
+                    marginRight: 5,
+                  }}
+                  size={15}
+                />
+                <Text style={{ fontFamily: 'bold', fontSize: theme.fontInfo, color: theme.yellow1 }}>Patrocinado</Text>
+              </View>
+              ) }
             </View>
           </View>
         </View>

@@ -6,6 +6,7 @@ export default {
   black1: '#444444',
   green1: '#07c98b',
   white1: '#ffffff',
+  yellow1: '#ffc000',
 
   fontInfo: 13,
   fontDefault: 18,
