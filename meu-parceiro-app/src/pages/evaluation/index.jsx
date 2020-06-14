@@ -20,6 +20,8 @@ import mapa01 from '../../assets/mapa01.png';
 
 import theme from '../../theme';
 
+import { openGps2 } from '../../utils';
+
 export default ({ navigation, route }) => {
   const { gasStation } = route.params;
   navigation.setOptions({
@@ -151,7 +153,7 @@ export default ({ navigation, route }) => {
         text="Iniciar viagem"
         textColor={theme.white1}
         backgroundColor={theme.green1}
-        onPress={() => {}}
+        onPress={() => openGps2()}
       />
     </View>
   );
