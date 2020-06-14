@@ -1,11 +1,10 @@
-# meu-parceiro
-Código para o Hackathon da CCR
+## Meu Chapa
 
-## Integrantes:
-[Breno Andrade](https://github.com/brenoandrade)
+> Código para o Hackathon da CCR
 
-[Igor Halfeld](https://github.com/igorhalfeld)
+### Integrantes:
 
-[João Pedro](https://github.com/joaopmgd)
-
-[Carlos Alves](https://github.com/domcarlos)
++ [Breno Andrade](https://github.com/brenoandrade)
++ [Igor Halfeld](https://github.com/igorhalfeld)
++ [João Pedro](https://github.com/joaopmgd)
++ [Carlos Alves](https://github.com/domcarlos)
