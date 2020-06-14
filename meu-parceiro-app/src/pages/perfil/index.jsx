@@ -71,7 +71,7 @@ export default () => (
       </Text>
     </View>
     {data.map((item) => (
-      <View style={{ width: '100%', alignItems: 'center', marginBottom: 15 }}>
+      <View key={item.type + Math.random()} style={{ width: '100%', alignItems: 'center', marginBottom: 15 }}>
         <View style={{
           width: '85%',
           padding: 15,
