@@ -18,8 +18,8 @@ import types from '../../store/types';
 
 const sendMessage = (phone) => {
   const min = 100000;
-  const max = 999999;
-  const code = Math.round(min + Math.random() * (max));
+  const max = 900000;
+  const code = Math.floor(min + Math.random() * (max));
   const config = {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',

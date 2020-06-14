@@ -7,10 +7,11 @@ import {
 } from 'react-native';
 
 // import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-// import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { faStar as faStarO } from '@fortawesome/free-regular-svg-icons';
+import { faStar as faStarOO } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faStarO, faHandshake } from '@fortawesome/free-regular-svg-icons';
 
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import Button from '../../components/Button';
 
 import abastecimento from '../../assets/abastecimento.png';
@@ -23,22 +24,54 @@ import theme from '../../theme';
 
 const buildStyleTab = (active) => ({
   alignItems: 'center',
+  paddingHorizontal: 10,
   borderBottomWidth: active ? 3 : 1,
   borderBottomColor: active ? theme.purple1 : theme.gray3,
 });
 
 const buildStyleImage = (active) => ({
-  width: 45,
-  height: 45,
+  width: 50,
+  height: 50,
+  color: active ? theme.purple1 : theme.black1,
 });
 
-export default ({ route }) => {
+const message = 'Dê uma nota de 1 a 5 para a qualidade do\nCombustível vendido pelo estabelecimento';
+
+export default ({ route, navigation }) => {
   const { gasStation } = route.params;
 
+  const [ok, setOk] = useState(false);
   const [tab, setTab] = useState(1);
   const [star, setStar] = useState({
     1: 0, 2: 0, 3: 0, 4: 0, 5: 0,
   });
+
+  if (ok) {
+    return (
+      <View style={{ flex: 1, marginTop: 30, alignItems: 'center' }}>
+        <View style={{
+          width: '90%',
+          backgroundColor: theme.white1,
+          alignItems: 'center',
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+          shadowOpacity: 0.25,
+          shadowRadius: 3.84,
+          borderRadius: 7,
+          elevation: 5,
+          padding: 20,
+        }}
+        >
+          <Text style={{ color: theme.black1, fontFamily: 'bold', fontSize: theme.fontTitle }}>Avaliação Finalizada</Text>
+          <FontAwesomeIcon icon={faHandshake} color={theme.black1} size={100} />
+          <Text style={{ color: theme.black1, fontFamily: 'regular', fontSize: theme.fontInfo }}>Obrigado! Continue avaliando e melhorando a vida dos caminhoneiros brasileiros!</Text>
+        </View>
+      </View>
+    );
+  }
 
   const {
     name,
@@ -69,14 +102,12 @@ export default ({ route }) => {
       >
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 20 }}>
           <View style={{ flex: 1 }}>
-            <Text style={{ fontFamily: 'bold', fontSize: theme.fontTitle }}>{name}</Text>
+            <Text style={{ fontFamily: 'bold', fontSize: theme.fontDefault, color: theme.black1 }}>{name}</Text>
           </View>
         </View>
         <View style={{
-          padding: 20,
           flexDirection: 'row',
-          justifyContent: 'space-between',
-          width: '100%',
+          justifyContent: 'space-around',
         }}
         >
           {[abastecimento, banho, alimentacao, mecanica, repouso].map((ref, index) => (
@@ -86,7 +117,25 @@ export default ({ route }) => {
           ))}
         </View>
         <View>
-          <TouchableOpacity />
+          <Text style={{ textAlign: 'center', marginTop: 20 }}>{message}</Text>
+        </View>
+        <View style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          width: '80%',
+        }}
+        >
+          {[1, 2, 3, 4, 5].map((item) => (
+            <TouchableOpacity onPress={() => setStar({ ...star, [tab]: item })} style={{ paddingVertical: 25, alignItems: 'center' }}>
+              <FontAwesomeIcon icon={item <= star[tab] ? faStarOO : faStarO} size={30} color={item <= star[tab] ? theme.purple1 : theme.black1} />
+              <Text style={{
+                marginTop: 15, fontFamily: 'bold', fontSize: theme.fontTitle, color: item <= star[tab] ? theme.purple1 : theme.black1,
+              }}
+              >
+                {item}
+              </Text>
+            </TouchableOpacity>
+          ))}
         </View>
       </View>
       <Button
@@ -95,22 +144,13 @@ export default ({ route }) => {
           width: '90%',
           height: 60,
         }}
-        icon={faStarO}
-        text="Avaliar Estabelecimento"
-        textColor={theme.white1}
-        backgroundColor={theme.purple1}
-        onPress={() => {}}
-      />
-      <Button
-        style={{
-          marginTop: 25,
-          width: '90%',
-          height: 60,
-        }}
-        text="Iniciar viagem"
+        text="Finalizar avaliação"
         textColor={theme.white1}
         backgroundColor={theme.green1}
-        onPress={() => {}}
+        onPress={() => {
+          setOk(true);
+          setTimeout(() => navigation.goBack(), 3000);
+        }}
       />
     </View>
   );
