@@ -66,7 +66,7 @@ export default class Verification extends Component {
               <TextInput
                 style={{
                   paddingVertical: 10,
-                  paddingHorizontal: 20,
+                  paddingHorizontal: 15,
                   fontSize: theme.fontInput,
                 }}
                 maxLength={1}
@@ -92,7 +92,7 @@ export default class Verification extends Component {
               <TextInput
                 style={{
                   paddingVertical: 10,
-                  paddingHorizontal: 20,
+                  paddingHorizontal: 15,
                   fontSize: theme.fontInput,
                 }}
                 maxLength={1}
@@ -118,7 +118,7 @@ export default class Verification extends Component {
               <TextInput
                 style={{
                   paddingVertical: 10,
-                  paddingHorizontal: 20,
+                  paddingHorizontal: 15,
                   fontSize: theme.fontInput,
                 }}
                 maxLength={1}
@@ -154,7 +154,7 @@ export default class Verification extends Component {
               <TextInput
                 style={{
                   paddingVertical: 10,
-                  paddingHorizontal: 20,
+                  paddingHorizontal: 15,
                   fontSize: theme.fontInput,
                 }}
                 maxLength={1}
@@ -180,7 +180,7 @@ export default class Verification extends Component {
               <TextInput
                 style={{
                   paddingVertical: 10,
-                  paddingHorizontal: 20,
+                  paddingHorizontal: 15,
                   fontSize: theme.fontInput,
                 }}
                 maxLength={1}
@@ -206,7 +206,7 @@ export default class Verification extends Component {
               <TextInput
                 style={{
                   paddingVertical: 10,
-                  paddingHorizontal: 20,
+                  paddingHorizontal: 15,
                   fontSize: theme.fontInput,
                   color: theme.black,
                 }}
