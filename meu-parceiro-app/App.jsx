@@ -56,6 +56,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginPage} />
         <Stack.Screen
           options={{
             title: 'Meu chapa',
@@ -161,7 +162,6 @@ export default function App() {
           name="Quality"
           component={QualityPage}
         />
-        <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginPage} />
         <Stack.Screen options={{ headerShown: false }} name="Verification" component={VerificationPage} />
       </Stack.Navigator>
     </NavigationContainer>
