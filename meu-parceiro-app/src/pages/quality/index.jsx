@@ -30,10 +30,9 @@ const buildStyleTab = (active) => ({
   borderBottomColor: active ? theme.purple1 : theme.gray3,
 });
 
-const buildStyleImage = (active) => ({
+const buildStyleImage = () => ({
   width: 50,
   height: 50,
-  color: active ? theme.purple1 : theme.black1,
 });
 
 const message = 'Dê uma nota de 1 a 5 para a qualidade do\nCombustível vendido pelo estabelecimento';
@@ -112,7 +111,7 @@ export default ({ route, navigation }) => {
         }}
         >
           {[abastecimento, banho, alimentacao, mecanica, repouso].map((ref, index) => (
-            <TouchableOpacity onPress={() => setTab(index)} style={buildStyleTab(tab === index)}>
+            <TouchableOpacity key={ref} onPress={() => setTab(index)} style={buildStyleTab(tab === index)}>
               <Image source={ref} style={buildStyleImage(tab === index)} />
             </TouchableOpacity>
           ))}
@@ -127,7 +126,7 @@ export default ({ route, navigation }) => {
         }}
         >
           {[1, 2, 3, 4, 5].map((item) => (
-            <TouchableOpacity onPress={() => setStar({ ...star, [tab]: item })} style={{ paddingVertical: 25, alignItems: 'center' }}>
+            <TouchableOpacity key={item} onPress={() => setStar({ ...star, [tab]: item })} style={{ paddingVertical: 25, alignItems: 'center' }}>
               <FontAwesomeIcon icon={item <= star[tab] ? faStarOO : faStarO} size={30} color={item <= star[tab] ? theme.purple1 : theme.black1} />
               <Text style={{
                 marginTop: 15, fontFamily: 'bold', fontSize: theme.fontTitle, color: item <= star[tab] ? theme.purple1 : theme.black1,
@@ -150,7 +149,7 @@ export default ({ route, navigation }) => {
         backgroundColor={theme.green1}
         onPress={() => {
           setOk(true);
-          setTimeout(() => navigation.goBack(), 3000);
+          setTimeout(() => navigation.goBack(), 2000);
         }}
       />
     </View>
