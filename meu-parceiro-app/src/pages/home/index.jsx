@@ -48,6 +48,7 @@ export default ({ navigation }) => (
           title="Mapear custo de viagem"
           subtitle="Pedágios, combustível e roteiros para sua viagem"
           image={custo}
+          onPress={() => navigation.navigate('Trip')}
         />
         <CardMain
           style={commonStyleCardMain}
