@@ -16,7 +16,7 @@ import theme from '../../theme';
 import { dispatch } from '../../store';
 import types from '../../store/types';
 
-const sendMessage = () => {
+const sendMessage = (phone) => {
   const min = 100000;
   const max = 999999;
   const code = Math.round(min + Math.random() * (max));
