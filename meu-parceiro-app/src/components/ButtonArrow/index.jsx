@@ -2,11 +2,13 @@ import React from 'react';
 import { TouchableOpacity } from 'react-native';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import theme from '../../theme';
 
-export default ({ isActive, style = {}, onPress = () => {} }) => (
+export default ({
+  inverted = false, isActive, style = {}, onPress = () => {},
+}) => (
   <TouchableOpacity
     onPress={isActive ? onPress : () => {}}
     style={{
@@ -21,7 +23,7 @@ export default ({ isActive, style = {}, onPress = () => {} }) => (
     }}
   >
     <FontAwesomeIcon
-      icon={faArrowRight}
+      icon={inverted ? faArrowLeft : faArrowRight}
       style={{
         color: isActive ? theme.black1 : theme.gray2,
       }}
