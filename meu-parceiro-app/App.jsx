@@ -6,11 +6,11 @@ import React, { useState } from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 
 import { decode, encode } from 'base-64';
+
 import LoginPage from './src/pages/login';
 import HomePage from './src/pages/home';
 import EstablishmentPage from './src/pages/establishment';
@@ -20,6 +20,7 @@ import SummaryPage from './src/pages/summary';
 import EvaluationPage from './src/pages/evaluation';
 import QualityPage from './src/pages/quality';
 import WorkoutPage from './src/pages/workout';
+import PerfilPage from './src/pages/perfil';
 
 import theme from './src/theme';
 import ButtonBack from './src/components/ButtonBack';
@@ -42,6 +43,11 @@ const fetchFonts = () => Font.loadAsync({
   semibold: require('./src/assets/fonts/Quicksand-SemiBold.ttf'),
 });
 
+const style = {
+  height: 100,
+  backgroundColor: theme.purple1,
+};
+
 export default function App() {
   const [dataLoaded, setDataLoaded] = useState(false);
 
@@ -62,9 +68,7 @@ export default function App() {
           options={{
             title: 'Meu chapa',
             headerLeft: null,
-            headerStyle: {
-              backgroundColor: theme.purple1,
-            },
+            headerStyle: style,
             headerTitleStyle: {
               fontFamily: 'bold',
               color: theme.white1,
@@ -80,9 +84,7 @@ export default function App() {
             headerBackTitleVisible: false,
             // eslint-disable-next-line react/jsx-props-no-spreading
             headerLeft: ButtonBack,
-            headerStyle: {
-              backgroundColor: theme.purple1,
-            },
+            headerStyle: style,
             headerTitleStyle: {
               fontFamily: 'bold',
               color: theme.white1,
@@ -98,9 +100,7 @@ export default function App() {
             headerBackTitleVisible: false,
             // eslint-disable-next-line react/jsx-props-no-spreading
             headerLeft: ButtonBack,
-            headerStyle: {
-              backgroundColor: theme.purple1,
-            },
+            headerStyle: style,
             headerTitleStyle: {
               fontFamily: 'bold',
               color: theme.white1,
@@ -116,9 +116,7 @@ export default function App() {
             headerBackTitleVisible: false,
             // eslint-disable-next-line react/jsx-props-no-spreading
             headerLeft: ButtonBack,
-            headerStyle: {
-              backgroundColor: theme.purple1,
-            },
+            headerStyle: style,
             headerTitleStyle: {
               fontFamily: 'bold',
               color: theme.white1,
@@ -151,9 +149,7 @@ export default function App() {
             headerBackTitleVisible: false,
             // eslint-disable-next-line react/jsx-props-no-spreading
             headerLeft: ButtonBack,
-            headerStyle: {
-              backgroundColor: theme.purple1,
-            },
+            headerStyle: style,
             headerTitleStyle: {
               fontFamily: 'bold',
               color: theme.white1,
@@ -169,9 +165,7 @@ export default function App() {
             headerBackTitleVisible: false,
             // eslint-disable-next-line react/jsx-props-no-spreading
             headerLeft: ButtonBack,
-            headerStyle: {
-              backgroundColor: theme.purple1,
-            },
+            headerStyle: style,
             headerTitleStyle: {
               fontFamily: 'bold',
               color: theme.white1,
@@ -180,6 +174,22 @@ export default function App() {
           }}
           name="Workout"
           component={WorkoutPage}
+        />
+        <Stack.Screen
+          options={{
+            title: 'Meu Perfil',
+            headerBackTitleVisible: false,
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            headerLeft: ButtonBack,
+            headerStyle: style,
+            headerTitleStyle: {
+              fontFamily: 'bold',
+              color: theme.white1,
+              fontSize: theme.fontTitle,
+            },
+          }}
+          name="Perfil"
+          component={PerfilPage}
         />
         <Stack.Screen options={{ headerShown: false }} name="Verification" component={VerificationPage} />
       </Stack.Navigator>
