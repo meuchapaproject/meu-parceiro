@@ -4,6 +4,8 @@ import {
 } from 'react-native';
 
 import CardMain from '../../components/CardMain';
+import CardContact from '../../components/CardContact';
+import CardCurrentTrip from '../../components/CardCurrentTrip';
 
 import theme from '../../theme';
 
@@ -13,7 +15,7 @@ import saude from '../../assets/saude.png';
 import trucker from '../../assets/trucker-driver.jpg';
 import image from '../../assets/iguin.png';
 
-import CardContact from '../../components/CardContact';
+import { useGlobalState } from '../../store';
 
 const commonStyleCardMain = {
   marginTop: 30,
@@ -39,6 +41,9 @@ export default ({ navigation }) => {
       ),
     });
   }, [navigation]);
+
+  const [currentTrip] = useGlobalState('trip');
+
   return (
     <SafeAreaView style={{
       flex: 1,
@@ -52,16 +57,24 @@ export default ({ navigation }) => {
           flexDirection: 'column',
         }}
       >
+        { currentTrip && (
         <View style={{ width: '100%', alignItems: 'center', marginTop: 20 }}>
-          <Text style={{ fontFamily: 'bold', fontSize: theme.fontDefault }}>Amigos próximos</Text>
+          <CardCurrentTrip />
+        </View>
+        ) }
+        <View style={{ width: '100%', alignItems: 'center', marginTop: currentTrip ? 30 : 20 }}>
+          <Text style={{ fontFamily: 'bold', fontSize: theme.fontDefault, color: theme.black1 }}>Amigos próximos</Text>
           <CardContact image={trucker} name="João Pedro" km={10} minutes={5} style={commonStyleCardContact} phone="+5515998561991" />
           <CardContact image={trucker} name="Breno Andrade" km={10} minutes={5} style={commonStyleCardContact} phone="+5514996364520" />
           <CardContact image={trucker} name="José Ricardo" km={10} minutes={5} style={commonStyleCardContact} phone="+5515998561991" />
         </View>
-        <View style={{ width: '100%', alignItems: 'center', marginTop: 40 }}>
-          <View style={{ height: 6, width: '13%', backgroundColor: theme.black1 }} />
-        </View>
-        <View style={{ width: '100%', alignItems: 'center' }}>
+        <View style={{ width: '100%', alignItems: 'center', marginTop: 30 }}>
+          <Text style={{
+            fontFamily: 'bold', fontSize: theme.fontDefault, color: theme.black1, marginBottom: -15,
+          }}
+          >
+            Serviços
+          </Text>
           <CardMain
             style={commonStyleCardMain}
             title="Buscar Estabelecimentos"

@@ -8,6 +8,7 @@ const initialState = {
   eixo: 2,
   origin: '',
   destination: '',
+  trip: false,
 };
 
 const reducer = (state, action) => {
@@ -17,6 +18,7 @@ const reducer = (state, action) => {
     case types.SET_EIXO: return { ...state, eixo: action.payload };
     case types.SET_ORIGIN: return { ...state, origin: action.payload };
     case types.SET_DESTINATION: return { ...state, destination: action.payload };
+    case types.SET_TRIP: return { ...state, trip: true };
     default: return state;
   }
 };
